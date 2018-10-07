@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="500" height="500" style="border:1px solid #FB6407; background-color: rgb(255, 153, 51, 0.1);">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+var z = {x: c.width,
+            y: 50,
+            color: "blue"};
+
+var t = {x: c.width,
+            y: 50,
+            color: "green"};
+
+var m = {x: c.width,
+            y: 50,
+            color: "purple"};
+
+function draw_z(height, width, color){ //takes height, width, color as parameters
+  // clear the box first
+  ctx.strokeStyle= color;
+  ctx.moveTo(150,200);
+  ctx.lineTo(150 + width,200);
+  ctx.moveTo(150,200);
+  ctx.lineTo(150,210);
+  ctx.lineTo(150 + (width -15), 210);
+  ctx.lineTo(150,200 + height);
+  ctx.lineTo(150 + width,200 + height);
+  ctx.lineTo(150 + width, 200 + (height-10));
+  ctx.lineTo(150 + (width -35), 200 + (height-10));
+  ctx.lineTo(150 + width, 200);
+  //ctx.beginPath();
+  
+  ctx.stroke();
+  
+}
+
+function draw_t(height, width, color){
+  ctx.strokeStyle= color;
+  ctx.moveTo(225,200);
+  ctx.lineTo(225 + width,200);
+  ctx.lineTo(225 + width, 200 + (height-90));
+  ctx.lineTo(225 + (width/2 + 5), 200 + (height-90));
+  ctx.moveTo(225,200);
+  ctx.lineTo(225,200 + (height-90));
+  ctx.lineTo(225 + (width/2 - 5), 200 + (height-90));
+  //ctx.moveTo(225 + width/2,200 + (height-90));
+  ctx.lineTo(225 + (width/2 - 5),200 + height);
+  ctx.lineTo(225 + (width/2 + 5),200 + height);
+  ctx.lineTo(225 + (width/2 + 5),200 + (height-90));
+  //ctx.beginPath(); 
+  ctx.stroke();
+}
+
+function draw_m(height, width, color){
+  ctx.strokeStyle= m.color;
+  ctx.moveTo(300,200 + height);
+  ctx.lineTo(300,200);
+  ctx.lineTo(300 + width/2, 200 + height/2);
+  ctx.lineTo(300 + width, 200);
+  ctx.lineTo(300 + width, 200 + height);
+  ctx.lineTo(300 + (width -10), 200 + height);
+  ctx.lineTo(300 + (width -10), 200 + (height - 60));
+  ctx.lineTo(300 + (width/2), 200 + ((height/2) + 10));
+  ctx.lineTo(300 + (width -40), 200 + (height - 60));
+  ctx.lineTo(300 + (width -40), 200 + (height));
+  ctx.lineTo(300, 200 + height);
+  
+  //ctx.lineTo(250,300);
+  //ctx.beginPath();
+  
+  ctx.stroke();
+}
+
+function main(){
+
+  draw_z(100, 50, "blue")
+  draw_t(100, 50, "green")
+  draw_m(100, 50, "pink")
+
+}
+
+main()
+
+</script> 
+
+</body>
+</html>
